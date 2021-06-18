@@ -1,6 +1,7 @@
 package com.lucky.controller;
 
 
+import com.lucky.common.lang.Result;
 import com.lucky.service.UserService;
 import jdk.nashorn.internal.runtime.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,6 @@ public class UserController {
     @GetMapping("/test")
     public Object test() {
         Object result = userService.getById(1L);
-        return result;
+        return Result.succ(result);
     }
 }
