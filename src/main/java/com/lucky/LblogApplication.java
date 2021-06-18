@@ -1,4 +1,4 @@
-package com.lucky.lblog;
+package com.lucky;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

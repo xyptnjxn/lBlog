@@ -1,4 +1,4 @@
-package com.lucky.lblog;
+package com.lucky;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
