@@ -4,6 +4,7 @@ package com.lucky.controller;
 import com.lucky.common.lang.Result;
 import com.lucky.service.UserService;
 import jdk.nashorn.internal.runtime.logging.Logger;
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    @RequiresAuthentication
     @GetMapping("/test")
     public Object test() {
         Object result = userService.getById(1L);
