@@ -8,6 +8,8 @@ import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  * <p>
@@ -28,8 +30,10 @@ public class Blog implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
+    @NotEmpty(message = "用户id不能为空")
     private Long userId;
 
+    @NotBlank(message = "标题不能为空")
     private String title;
 
     private String description;
