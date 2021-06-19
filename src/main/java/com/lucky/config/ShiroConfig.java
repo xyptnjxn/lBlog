@@ -71,6 +71,11 @@ public class ShiroConfig {
         filters.put("jwt", jwtFilter);
         shiroFilter.setFilters(filters);
         Map<String, String> filterMap = shiroFilterChainDefinition.getFilterChainMap();
+        //swagger2免拦截
+        filterMap.put("/swagger-ui.html**", "anon");
+        filterMap.put("/v2/api-docs", "anon");
+        filterMap.put("/swagger-resources/**", "anon");
+        filterMap.put("/webjars/**", "anon");
         shiroFilter.setFilterChainDefinitionMap(filterMap);
         return shiroFilter;
     }
