@@ -2,14 +2,15 @@ package com.lucky.controller;
 
 
 import com.lucky.common.lang.Result;
+import com.lucky.entity.User;
 import com.lucky.service.UserService;
 import jdk.nashorn.internal.runtime.logging.Logger;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.RestController;
+import javax.validation.Valid;
 
 /**
  * <p>
@@ -31,5 +32,10 @@ public class UserController {
     public Object test() {
         Object result = userService.getById(1L);
         return Result.succ(result);
+    }
+
+    @PostMapping("/save")
+    public Result save(@Validated @RequestBody User user) {
+        return Result.succ(user);
     }
 }
